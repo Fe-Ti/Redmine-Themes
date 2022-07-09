@@ -156,9 +156,41 @@ table.list tbody td, table.list tbody tr {
   border-color: #E8E8E8    
 }
 
+/*
+1 new
+2 work in progress
+3 resolved
+4 need feedback
+5 closed
+6 rejected
+*/
+
+
 table.list tbody tr.status-1 td.status {
+  background-color: #FFFFFF;
+}
+
+table.list tbody tr.status-2 td.status {
+  background-color: #FFFFCC;
+}
+
+table.list tbody tr.status-3 td.status {
   background-color: #CCFFCC;
 }
+
+table.list tbody tr.status-4 td.status {
+  background-color: #FFCCCC;
+}
+
+table.list tbody tr.status-5 td.status {
+  background-color: #FFCCFF;
+}
+
+table.list tbody tr.status-6 td.status {
+  background-color: #808080;
+}
+
+
 
 #context-menu {
   box-shadow: 0 0 3px black;
