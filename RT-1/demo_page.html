@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Project Management</title>
+<link rel="stylesheet" media="all" href="../demo/default.css" />
+<link rel="stylesheet" media="all" href="./stylesheets/application.css" />
+</head>
+<body class="theme-Alternate project-admdepartment has-main-menu controller-issues action-show avatars-off">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/admdepartment/search" accept-charset="UTF-8" name="form-d22476d4" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="hidden" name="issues" value="1" />
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">&#9906;</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Поиск" />
+</form>        </div>
+
+        <div class="flyout-menu__avatar flyout-menu__avatar--no-avatar">
+            <a class="user active">User</a>
+        </div>
+
+        <h3>Проект</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>Общее</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Профиль</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="/my/account">Моя учётная запись</a></li><li><a class="logout" rel="nofollow" data-method="post" href="/logout">Выйти</a></li></ul>    </div>
+    <div id="loggedas">Вошли как <a class="user active" href="/users/6">User</a></div>
+    <ul><li><a class="home" href="/">Домашняя страница</a></li><li><a class="my-page" href="/my/page">Моя страница</a></li><li><a class="projects" href="/projects">Проекты</a></li><li><a class="administration" href="/admin">Администрирование</a></li><li><a class="help" href="https://www.redmine.org/guide">Помощь</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/admdepartment/search" accept-charset="UTF-8" name="form-96007d2e" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="scope" />
+        <input type="hidden" name="issues" value="1" />
+        <label for='q'>
+          <a accesskey="4" href="/projects/admdepartment/search">Поиск</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true" />
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">Административный Отдел</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" value="" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=issues" autocomplete="off" /></div><div class="drdn-items projects selection"><strong>Последние</strong></div><div class="drdn-items all-projects selection"><a href="/projects?jump=issues">Все проекты</a></div></div></div>
+    </div>
+
+    <h1><span class="breadcrumbs"><a class="root" href="/projects/departments?jump=issues">Отделы</a><span class="separator"> &raquo; </span></span><span class="current-project">Demo</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a accesskey="7" class="new-issue-sub" href="/projects/admdepartment/issues/new">Новая задача</a></li><li><a class="new-issue-category" href="/projects/admdepartment/issue_categories/new">Новая категория</a></li><li><a class="new-version" href="/projects/admdepartment/versions/new">Новая версия</a></li><li><a class="new-timelog" href="/projects/admdepartment/time_entries/new">Добавить трудозатраты</a></li><li><a class="new-news" href="/projects/admdepartment/news/new">Добавить новость</a></li><li><a class="new-document" href="/projects/admdepartment/documents/new">Новый документ</a></li><li><a class="new-wiki-page" href="/projects/admdepartment/wiki/new">Новая wiki-страница</a></li><li><a class="new-file" href="/projects/admdepartment/files/new">Новый файл</a></li></ul>
+</li><li><a class="overview" href="/projects/admdepartment">Обзор</a></li><li><a class="activity" href="/projects/admdepartment/activity">Действия</a></li><li><a class="issues selected" href="/projects/admdepartment/issues">Задачи</a></li><li><a class="time-entries" href="/projects/admdepartment/time_entries">Трудозатраты</a></li><li><a class="gantt" href="/projects/admdepartment/issues/gantt">Диаграмма Ганта</a></li><li><a class="calendar" href="/projects/admdepartment/issues/calendar">Календарь</a></li><li><a class="news" href="/projects/admdepartment/news">Новости</a></li><li><a class="documents" href="/projects/admdepartment/documents">Документы</a></li><li><a class="wiki" href="/projects/admdepartment/wiki">Wiki</a></li><li><a class="files" href="/projects/admdepartment/files">Файлы</a></li><li><a class="settings" href="/projects/admdepartment/settings">Настройки</a></li></ul>
+        <div class="tabs-buttons" style="display:none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+
+<h3>Сохранённые запросы</h3>
+<ul class="queries"><li><a class="query" href="/projects/admdepartment/issues?query_id=1">Мои задачи</a></li>
+<li><a class="query" href="/projects/admdepartment/issues?query_id=3">Обновленные задачи</a></li>
+<li><a class="query" href="/projects/admdepartment/issues?query_id=4">Отслеживаемые задачи</a></li>
+<li><a class="query" href="/projects/admdepartment/issues?query_id=2">Созданные задачи</a></li></ul>
+
+
+
+
+    <div id="watchers">
+      <div class="contextual">
+<a data-remote="true" data-method="get" href="/watchers/new?object_id=23&amp;object_type=issue">Добавить</a>
+</div>
+
+<h3>Наблюдатели (0)</h3>
+
+
+
+    </div>
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+<a onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;" class="icon icon-edit" accesskey="e" href="/issues/23/edit">Редактировать</a>
+<a class="icon icon-time-add" href="/issues/23/time_entries/new">Добавить трудозатраты</a>
+<a class="issue-23-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="/watchers/watch?object_id=23&amp;object_type=issue">Следить</a>
+<a class="icon icon-copy" href="/projects/admdepartment/issues/23/copy">Копировать</a>
+<span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Действия">Действия</span></span><div class="drdn-content"><div class="drdn-items">
+  <a href="#" onclick="copyTextToClipboard(this);; return false;" class="icon icon-copy-link" data-clipboard-text="http://192.168.2.3/issues/23">Копировать ссылку</a>
+  <a data-confirm="Вы уверены, что хотите удалить выбранные задачи?" class="icon icon-del" rel="nofollow" data-method="delete" href="/issues/23">Удалить</a>
+</div></div></span></div>
+
+
+<h2 class="inline-flex">Переговоры #23</h2>
+<span class="badge badge-status-open">открыто</span>
+
+<div class="issue tracker-3 status-1 priority-2 priority-default created-by-me details">
+    <div class="next-prev-links contextual">
+      <a title="#24" accesskey="p" href="/issues/24">« Предыдущее</a> |
+        <span class="position">
+          <a href="/issues?f%5B%5D=status_id&amp;op%5Bstatus_id%5D=o&amp;page=1&amp;per_page=25&amp;set_filter=1&amp;sort=id%3Adesc&amp;v%5Bstatus_id%5D%5B%5D=">15/35</a>
+        </span> |
+      <a title="#22" accesskey="n" href="/issues/22">Следующее »</a>
+    </div>
+
+  <div class="gravatar-with-child">
+    
+    
+  </div>
+
+<div class="subject">
+<div><h3>Тема задачи</h3></div>
+</div>
+        <p class="author">
+        Добавил(а) <a class="user active" href="/users/6">Пользователь 6</a> <a title="08.07.2022 17:57" href="/projects/admdepartment/activity?from=2022-07-08">около 22 часа</a> назад.
+        Обновлено <a title="08.07.2022 21:12" href="/projects/admdepartment/activity?from=2022-07-08">около 19 часа</a> назад.
+        </p>
+
+<div class="attributes">
+<div class="splitcontent"><div class="splitcontentleft"><div class="status attribute"><div class="label">Статус:</div><div class="value">Новая</div></div><div class="priority attribute"><div class="label">Приоритет:</div><div class="value">Нормальный</div></div><div class="assigned-to attribute"><div class="label">Назначена:</div><div class="value"><a class="user active" href="/users/15">Пользователь 15</a></div></div></div><div class="splitcontentleft"><div class="start-date attribute"><div class="label">Дата начала:</div><div class="value">08.07.2022</div></div><div class="due-date attribute"><div class="label">Срок завершения:</div><div class="value"></div></div><div class="progress attribute"><div class="label">Готовность:</div><div class="value"><table class="progress progress-0"><tr><td style="width: 100%;" class="todo"></td></tr></table><p class="percent">0%</p></div></div><div class="estimated-hours attribute"><div class="label">Оценка временных затрат:</div><div class="value"></div></div></div></div>
+
+
+</div>
+
+
+
+
+
+
+<hr />
+<div id="issue_tree">
+<div class="contextual">
+  <a href="/projects/admdepartment/issues/new?back_url=%2Ftrack%2Fissues%2F23&amp;issue%5Bparent_issue_id%5D=23&amp;issue%5Btracker_id%5D=3">Добавить</a>
+</div>
+<p>
+  <strong>Подзадачи</strong>
+  
+</p>
+<form data-cm-url="/issues/context_menu" action="/issues/23" accept-charset="UTF-8" name="form-dde94a7b" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="==" />
+</form></div>
+
+<hr />
+<div id="relations">
+<div class="contextual">
+  <a onclick="$(&#39;#new-relation-form&#39;).toggle(); $(&#39;#relation_issue_to_id&#39;).focus(); return false;" href="#">Добавить</a>
+</div>
+
+<p><strong>Связанные задачи</strong></p>
+
+
+<form class="new_relation" id="new-relation-form" style="display: none;" action="/issues/23/relations" accept-charset="UTF-8" data-remote="true" name="new-relation-form-06e54510" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+<p><select onchange="setPredecessorFieldsVisibility();" name="relation[relation_type]" id="relation_relation_type"><option selected="selected" value="relates">связана с</option>
+<option value="duplicates">дублирует</option>
+<option value="duplicated">дублируется</option>
+<option value="blocks">блокирует</option>
+<option value="blocked">блокируется</option>
+<option value="precedes">следующая</option>
+<option value="follows">предыдущая</option>
+<option value="copied_to">скопирована в</option>
+<option value="copied_from">скопирована с</option></select>
+Задача #<input value="" size="10" type="text" name="relation[issue_to_id]" id="relation_issue_to_id" />
+<span id="predecessor_fields" style="display:none;">
+Отложить: <input size="3" type="text" name="relation[delay]" id="relation_delay" /> дней(я)
+</span>
+<input type="submit" name="commit" value="Добавить" data-disable-with="Добавить" />
+<a href="#" onclick="$(&quot;#new-relation-form&quot;).hide();; return false;">Отмена</a>
+</p>
+
+<script>
+//<![CDATA[
+multipleAutocompleteField('relation_issue_to_id', '/issues/auto_complete?issue_id=23&project_id=admdepartment')
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+setPredecessorFieldsVisibility();
+//]]>
+</script>
+
+</form>
+</div>
+
+</div>
+
+
+
+<div id="history">
+
+<div class="tabs">
+  <ul>
+    <li><a id="tab-history" onclick="showIssueHistory(&quot;history&quot;, this.href); return false;" href="/issues/23?tab=history">История</a></li>
+    <li><a id="tab-notes" class="selected" onclick="showIssueHistory(&quot;notes&quot;, this.href); return false;" href="/issues/23?tab=notes">Примечания</a></li>
+  </ul>
+  <div class="tabs-buttons" style="display:none;">
+    <button class="tab-left" type="button" onclick="moveTabLeft(this);"></button>
+    <button class="tab-right" type="button" onclick="moveTabRight(this);"></button>
+  </div>
+</div>
+
+  <div id="tab-content-history" style="display:none" class="tab-content">
+  <div id="change-21" class="journal has-notes">
+    <div id="note-1">
+    <div class="contextual">
+      <span class="journal-actions"><a title="Цитировать" class="icon-only icon-comment" data-remote="true" rel="nofollow" data-method="post" href="/issues/23/quoted?journal_id=21&amp;journal_indice=1">Цитировать</a> <a title="Редактировать" class="icon-only icon-edit" data-remote="true" data-method="get" href="/journals/21/edit">Редактировать</a><span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Действия">Действия</span></span><div class="drdn-content"><div class="drdn-items"><a href="#" onclick="copyTextToClipboard(this);; return false;" class="icon icon-copy-link" data-clipboard-text="http://192.168.2.3/issues/23#note-1">Копировать ссылку</a> <a data-confirm="Вы уверены?" class="icon icon-del" data-remote="true" rel="nofollow" data-method="put" href="/journals/21?journal%5Bnotes%5D=">Удалить</a></div></div></span></span>
+      <a href="#note-1" class="journal-link">#1</a>
+    </div>
+    <h4 class='note-header'>
+      
+      Обновлено <a class="user active" href="/users/6">Пользователь 6</a> <a title="08.07.2022 21:12" href="/projects/admdepartment/activity?from=2022-07-08">около 19 часа</a> назад
+      <span id="journal-21-private_notes" class=""></span>
+    </h4>
+
+    <div id="journal-21-notes" class="wiki"><p><a href="https://zinstack.ddns.net/issues/31?issue_count=3&amp;issue_position=1&amp;next_issue_id=30" class="external">Упомянута в задаче №31</a></p>
+</div>
+    </div>
+  </div>
+  
+
+</div>
+  
+
+<script>
+//<![CDATA[
+showIssueHistory("notes", this.href)
+//]]>
+</script>
+
+</div>
+
+<div style="clear: both;"></div>
+<div class="contextual">
+<a onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;" class="icon icon-edit" href="/issues/23/edit">Редактировать</a>
+<a class="icon icon-time-add" href="/issues/23/time_entries/new">Добавить трудозатраты</a>
+<a class="issue-23-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="/watchers/watch?object_id=23&amp;object_type=issue">Следить</a>
+<a class="icon icon-copy" href="/projects/admdepartment/issues/23/copy">Копировать</a>
+<span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Действия">Действия</span></span><div class="drdn-content"><div class="drdn-items">
+  <a href="#" onclick="copyTextToClipboard(this);; return false;" class="icon icon-copy-link" data-clipboard-text="http://192.168.2.3/issues/23">Копировать ссылку</a>
+  <a data-confirm="Вы уверены, что хотите удалить выбранные задачи?" class="icon icon-del" rel="nofollow" data-method="delete" href="/issues/23">Удалить</a>
+</div></div></span></div>
+
+
+<div style="clear: both;"></div>
+  <div id="update" style="display:none;">
+    <h3>Редактировать</h3>
+    <form class="edit_issue" id="issue-form" enctype="multipart/form-data" action="/issues/23" accept-charset="UTF-8" name="issue-form-d8126d56" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="cT7A1xtwYouL3ZS76JdkJ0PXVX/Vyrx3sQVAu0iYnwPJVbrMMnIZ8Qj4uDiaFeMleniFRxb9Yhc8PQtnmfS21w==" />
+    
+    
+    <div class="box">
+        <fieldset class="tabular"><legend>Изменить свойства</legend>
+        <div id="all_attributes">
+        
+
+<input type="hidden" name="form_update_triggered_by" id="form_update_triggered_by" value="" />
+
+
+<p id="issue_is_private_wrap">
+  <input name="issue[is_private]" type="hidden" value="0" /><input type="checkbox" value="1" name="issue[is_private]" id="issue_is_private" /><label class="inline" for="issue_is_private" id="issue_is_private_label">Частная</label>
+</p>
+
+<p>
+  <label for="issue_tracker_id">Трекер<span class="required"> *</span></label><select onchange="updateIssueFrom(&#39;/issues/23/edit.js&#39;, this)" title="" name="issue[tracker_id]" id="issue_tracker_id"><option value="1">Организационные задачи</option>
+<option value="2">Разработка</option>
+<option selected="selected" value="3">Переговоры</option>
+<option value="5">Технические работы</option>
+<option value="6">Эпик</option></select>
+  <a class="icon-only icon-help" title="Показать описания трекеров" onclick="showModal(&#39;trackers_description&#39;, &#39;500px&#39;); return false;" href="#">Показать описания трекеров</a>
+</p>
+    <div class="modal" id="trackers_description">
+    <h3 class="title">Описание трекеров</h3>
+      <dl>
+          <dt><a onclick="selectTracker(&#39;6&#39;); return false;" href="#" title="Выбор этого трекера">Эпик</a></dt>
+          <dd>Применим для задач, содержащих набор подзадач</dd>
+      </dl>
+  </div>
+<script>
+//<![CDATA[
+
+  function selectTracker(id) {
+    var target = $('#issue_tracker_id');
+    target.attr("selected", false);
+    target.find('option[value="' + id + '"]').prop('selected', true);
+    target.trigger('change');
+    hideModal('#trackers_description h3');
+  }
+
+//]]>
+</script>
+
+<p><label for="issue_subject">Тема<span class="required"> *</span></label><input size="80" maxlength="255" type="text" value="Поиск финансирования" name="issue[subject]" id="issue_subject" /></p>
+
+<p>
+  <label for="issue_description">Описание</label>
+  <a href="#" onclick="$(this).hide(); $(&quot;#issue_description_and_toolbar&quot;).show(); return false;"><span class="icon icon-edit">Редактировать</span></a>
+  <span id="issue_description_and_toolbar" style="display:none">
+    <textarea cols="60" class="wiki-edit" rows="10" data-auto-complete="true" name="issue[description]" id="issue_description">
+</textarea>
+</span></p>
+<script>
+//<![CDATA[
+var wikiToolbar = new jsToolBar(document.getElementById('issue_description')); wikiToolbar.setHelpLink('/help/ru/wiki_syntax_markdown.html'); wikiToolbar.setPreviewUrl('/issues/preview?issue_id=23&project_id=admdepartment'); wikiToolbar.draw();
+//]]>
+</script>
+
+<div id="attributes" class="attributes">
+  
+
+<div class="splitcontent">
+<div class="splitcontentleft">
+<p>
+  <label for="issue_status_id">Статус<span class="required"> *</span></label><select onchange="updateIssueFrom(&#39;/issues/23/edit.js&#39;, this)" name="issue[status_id]" id="issue_status_id"><option selected="selected" value="1">Новая</option>
+<option value="2">В работе</option>
+<option value="3">Решена</option>
+<option value="4">Нужен отклик</option>
+<option value="5">Закрыта</option>
+<option value="6">Отклонена</option></select>
+</p>
+<input type="hidden" name="was_default_status" value="1" />
+
+<p><label for="issue_priority_id">Приоритет<span class="required"> *</span></label><select name="issue[priority_id]" id="issue_priority_id"><option value="1">Низкий</option>
+<option selected="selected" value="2">Нормальный</option>
+<option value="3">Высокий</option>
+<option value="4">Срочный</option>
+<option value="5">Немедленный</option></select></p>
+
+<p>
+  <label for="issue_assigned_to_id">Назначена</label><select name="issue[assigned_to_id]" id="issue_assigned_to_id"><option value="">&nbsp;</option>
+
+
+</div>
+
+<div class="splitcontentright">
+<p id="parent_issue"><label for="issue_parent_issue_id">Родительская задача</label><input size="10" onchange="updateIssueFrom(&#39;/issues/23/edit.js&#39;, this)" type="text" name="issue[parent_issue_id]" id="issue_parent_issue_id" /></p>
+<script>
+//<![CDATA[
+observeAutocompleteField('issue_parent_issue_id', '/issues/auto_complete?issue_id=23&project_id=admdepartment&scope=tree&status=o')
+//]]>
+</script>
+
+<p id="start_date_area">
+  <label for="issue_start_date">Дата начала</label><input size="10" value="2022-07-08" type="date" name="issue[start_date]" id="issue_start_date" />
+  <script>
+//<![CDATA[
+$(function() { $('#issue_start_date').addClass('date').datepickerFallback(datepickerOptions); });
+//]]>
+</script>
+</p>
+
+<p id="due_date_area">
+  <label for="issue_due_date">Срок завершения</label><input size="10" type="date" name="issue[due_date]" id="issue_due_date" />
+  <script>
+//<![CDATA[
+$(function() { $('#issue_due_date').addClass('date').datepickerFallback(datepickerOptions); });
+//]]>
+</script>
+</p>
+
+<p><label for="issue_estimated_hours">Оценка временных затрат</label><input size="3" value="" type="text" name="issue[estimated_hours]" id="issue_estimated_hours" /> час(а,ов)</p>
+
+<p><label for="issue_done_ratio">Готовность</label><select name="issue[done_ratio]" id="issue_done_ratio"><option selected="selected" value="0">0 %</option>
+<option value="10">10 %</option>
+<option value="20">20 %</option>
+<option value="30">30 %</option>
+<option value="40">40 %</option>
+<option value="50">50 %</option>
+<option value="60">60 %</option>
+<option value="70">70 %</option>
+<option value="80">80 %</option>
+<option value="90">90 %</option>
+<option value="100">100 %</option></select></p>
+</div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=admdepartment\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=admdepartment\u0026q="}';
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+
+$(document).ready(function(){
+  $("#issue_tracker_id, #issue_status_id").each(function(){
+    $(this).val($(this).find("option[selected=selected]").val());
+  });
+  $(".assign-to-me-link").click(function(event){
+    event.preventDefault();
+    var element = $(event.target);
+    $('#issue_assigned_to_id').val(element.data('id'));
+    element.hide();
+  });
+  $('#issue_assigned_to_id').change(function(event){
+    var assign_to_me_link = $(".assign-to-me-link");
+
+    if (assign_to_me_link.length > 0) {
+      var user_id = $(event.target).val();
+      var current_user_id = assign_to_me_link.data('id');
+
+      if (user_id == current_user_id) {
+        assign_to_me_link.hide();
+      } else {
+        assign_to_me_link.show();
+      }
+    }
+  });
+});
+
+//]]>
+</script>
+        </div>
+        </fieldset>
+        <fieldset class="tabular"><legend>Добавить трудозатраты</legend>
+        
+        <div class="splitcontent">
+        <div class="splitcontentleft">
+        <p><label for="time_entry_hours">Трудозатраты</label><input size="6" value="" type="text" name="time_entry[hours]" id="time_entry_hours" /> час(а,ов)</p>
+        </div>
+        <div class="splitcontentright">
+        <p><label for="time_entry_activity_id">Деятельность</label><select name="time_entry[activity_id]" id="time_entry_activity_id"><option value="">--- Выберите ---</option>
+<option value="8">Проектирование</option>
+<option value="9">Разработка</option></select></p>
+        </div>
+        </div>
+        <p><label for="time_entry_comments">Комментарий</label><input size="60" type="text" name="time_entry[comments]" id="time_entry_comments" /></p>
+    </fieldset>
+      <fieldset><legend>Примечания</legend>
+      <textarea cols="60" rows="10" class="wiki-edit" data-auto-complete="true" name="issue[notes]" id="issue_notes">
+</textarea>
+      <script>
+//<![CDATA[
+var wikiToolbar = new jsToolBar(document.getElementById('issue_notes')); wikiToolbar.setHelpLink('/help/ru/wiki_syntax_markdown.html'); wikiToolbar.setPreviewUrl('/issues/preview?issue_id=23&project_id=admdepartment'); wikiToolbar.draw();
+//]]>
+</script>
+
+      <input name="issue[private_notes]" type="hidden" value="0" /><input type="checkbox" value="1" name="issue[private_notes]" id="issue_private_notes" /> <label for="issue_private_notes">Приватный комментарий</label>
+
+      
+      </fieldset>
+
+      <fieldset><legend>Файлы</legend>
+
+        <div id="new-attachments" style="display:inline-block;">
+          
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="Этот файл не будет загружен, так как превышено максимальное количество одновременно загружаемых файлов (10)" data-max-file-size="5242880" data-max-file-size-message="Этот файл нельзя загрузить из-за превышения максимального размера файла (5 МБ)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Описание (необязательно)" />
+    (Максимальный размер: 5 МБ)
+  </span>
+</span>
+
+
+        </div>
+      </fieldset>
+    </div>
+
+    <input type="hidden" value="1" name="issue[lock_version]" id="issue_lock_version" />
+    <input type="hidden" name="last_journal_id" id="last_journal_id" value="21" />
+    <input type="submit" name="commit" value="Принять" data-disable-with="Принять" />
+    <a onclick="$(&#39;#update&#39;).hide(); return false;" href="/issues/23">Отмена</a>
+    <input type="hidden" name="prev_issue_id" id="prev_issue_id" value="24" />
+    <input type="hidden" name="next_issue_id" id="next_issue_id" value="22" />
+    <input type="hidden" name="issue_position" id="issue_position" value="15" />
+    <input type="hidden" name="issue_count" id="issue_count" value="35" />
+</form>
+  </div>
+
+
+<p class="other-formats">Экспортировать в  <span><a class="atom" rel="nofollow" href="/issues/23.atom?key=5bcddbd4f7b3aaaf57af842ae087e78fc700a6d8">Atom</a></span>
+  <span><a class="pdf" rel="nofollow" href="/issues/23.pdf">PDF</a></span>
+</p>
+
+
+
+
+<form data-cm-url="/issues/context_menu" action="/projects/designprdepartment/issues" accept-charset="UTF-8" name="form-902490bd" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="вв==" /><input type="hidden" name="back_url" value="/projects/designprdepartment/issues" />
+<input type="hidden" name="c[]" value="id" /><input type="hidden" name="c[]" value="tracker" /><input type="hidden" name="c[]" value="status" /><input type="hidden" name="c[]" value="priority" /><input type="hidden" name="c[]" value="subject" /><input type="hidden" name="c[]" value="assigned_to" /><input type="hidden" name="c[]" value="updated_on" />
+<div class="autoscroll">
+<table class="list issues odd-even sort-by-id sort-desc">
+  <thead>
+    <tr>
+      <th class="checkbox hide-when-print">
+        <input type="checkbox" name="check_all" id="check_all" value="" class="toggle-selection" title="Отметить все/Очистить" />
+      </th>
+        <th class="id"><a title="Сортировать по &quot;#&quot;" class="sort desc icon icon-sorted-asc" href="/projects/designprdepartment/issues?sort=id">#</a></th>
+        <th class="tracker"><a title="Сортировать по &quot;Трекер&quot;" href="/projects/designprdepartment/issues?sort=tracker%2Cid%3Adesc">Трекер</a></th>
+        <th class="status"><a title="Сортировать по &quot;Статус&quot;" href="/projects/designprdepartment/issues?sort=status%2Cid%3Adesc">Статус</a></th>
+        <th class="priority"><a title="Сортировать по &quot;Приоритет&quot;" href="/projects/designprdepartment/issues?sort=priority%3Adesc%2Cid%3Adesc">Приоритет</a></th>
+        <th class="subject"><a title="Сортировать по &quot;Тема&quot;" href="/projects/designprdepartment/issues?sort=subject%2Cid%3Adesc">Тема</a></th>
+        <th class="assigned_to"><a title="Сортировать по &quot;Назначена&quot;" href="/projects/designprdepartment/issues?sort=assigned_to%2Cid%3Adesc">Назначена</a></th>
+        <th class="updated_on"><a title="Сортировать по &quot;Обновлено&quot;" href="/projects/designprdepartment/issues?sort=updated_on%3Adesc%2Cid%3Adesc">Обновлено</a></th>
+      <th class="buttons"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr id="issue-36" class="hascontextmenu odd issue tracker-1 status-1 priority-2 priority-default created-by-me ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="36" /></td>
+    <td class="id"><a href="/issues/36">36</a></td>
+    <td class="tracker">Организационные задачи</td>
+    <td class="status">Новая</td>
+    <td class="priority">Нормальный</td>
+    <td class="subject"><a href="/issues/36">PR-кампания</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/10">Пользователь 10</a></td>
+    <td class="updated_on">09.07.2022 09:15</td>
+    <td class="buttons"><a title="Действия" class="icon-only icon-actions js-contextmenu" href="#">Действия</a></td>
+  </tr>
+  <tr id="issue-35" class="hascontextmenu even issue tracker-2 status-1 priority-2 priority-default created-by-me ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="35" /></td>
+    <td class="id"><a href="/issues/35">35</a></td>
+    <td class="tracker">Разработка</td>
+    <td class="status">Новая</td>
+    <td class="priority">Нормальный</td>
+    <td class="subject"><a href="/issues/35">Продумать наполнение соцсетей</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/17">Пользователь 17</a></td>
+    <td class="updated_on">09.07.2022 09:13</td>
+    <td class="buttons"><a title="Действия" class="icon-only icon-actions js-contextmenu" href="#">Действия</a></td>
+  </tr>
+  <tr id="issue-34" class="hascontextmenu odd issue tracker-2 status-1 priority-2 priority-default child created-by-me ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="34" /></td>
+    <td class="id"><a href="/issues/34">34</a></td>
+    <td class="tracker">Разработка</td>
+    <td class="status">Новая</td>
+    <td class="priority">Нормальный</td>
+    <td class="subject"><a href="/issues/34">Мерч</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/17">Пользователь 17</a></td>
+    <td class="updated_on">09.07.2022 09:12</td>
+    <td class="buttons"><a title="Действия" class="icon-only icon-actions js-contextmenu" href="#">Действия</a></td>
+  </tr>
+  <tr id="issue-33" class="hascontextmenu even issue tracker-6 status-1 priority-2 priority-default parent created-by-me ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="33" /></td>
+    <td class="id"><a href="/issues/33">33</a></td>
+    <td class="tracker">Эпик</td>
+    <td class="status">Новая</td>
+    <td class="priority">Нормальный</td>
+    <td class="subject"><a href="/issues/33">Брендбук</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/17">Пользователь 17</a></td>
+    <td class="updated_on">09.07.2022 09:12</td>
+    <td class="buttons"><a title="Действия" class="icon-only icon-actions js-contextmenu" href="#">Действия</a></td>
+  </tr>
+  <tr id="issue-32" class="hascontextmenu odd issue tracker-2 status-1 priority-2 priority-default child created-by-me idnt idnt-1">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="32" /></td>
+    <td class="id"><a href="/issues/32">32</a></td>
+    <td class="tracker">Разработка</td>
+    <td class="status">Новая</td>
+    <td class="priority">Нормальный</td>
+    <td class="subject"><a href="/issues/32">ТЗ для брендбука</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/17">Пользователь 17</a></td>
+    <td class="updated_on">09.07.2022 09:16</td>
+    <td class="buttons"><a title="Действия" class="icon-only icon-actions js-contextmenu" href="#">Действия</a></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</form>
+<span class="pagination"><ul class="pages"></ul><span><span class="items">(1-5/5)</span> </span></span>
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> &copy; 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Загрузка...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+</body>
+</html>
+

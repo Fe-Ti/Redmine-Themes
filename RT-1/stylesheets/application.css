@@ -169,6 +169,9 @@ div.issue {
   background-color: #EAF5FF;
 }
 
+table.progress td.todo {
+  background-color: #fff;
+}
 /*-- Not used
 .rolling-smth {
   animation-name: rolling;
