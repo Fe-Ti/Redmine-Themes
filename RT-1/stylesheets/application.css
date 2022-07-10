@@ -1,4 +1,7 @@
 @import url(../../../stylesheets/application.css);
+
+/***************/
+/*Common styles*/
 body, #wrapper { background-color: #FFEEEE; }
 
 #header {
@@ -17,7 +20,18 @@ body, #wrapper { background-color: #FFEEEE; }
   background-color: #3E5B76;
 }
 
-#main { background: #FFEEEE; margin: 8px 10px 0px 10px; }
+#top-menu > ul > li > a {
+  transition: all 1s;
+}
+
+#top-menu > ul > li > a:hover {
+  font-size: 120%;
+}
+
+#main {
+  background: #FFEEEE;
+  margin: 8px 10px 0px 10px;
+}
 
 #content, #main.nosidebar #content {
   background: #fff; 
@@ -43,6 +57,8 @@ body, #wrapper { background-color: #FFEEEE; }
 }
 
 
+/******************/
+/* My page styles */
 
 .mypage-box {
   background: #FFFFFF;
@@ -53,6 +69,19 @@ body, #wrapper { background-color: #FFEEEE; }
 
 .mypage-box:hover {
   background: #EAF5FF;
+}
+
+#block-form {
+  transition: all 1s;
+  padding: 10px;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+#block-form:hover {
+  opacity: 1;
+  background: #EAEAFF;
+  box-shadow: 0 0 3px;
 }
 
 .ui-sortable-helper {
@@ -79,26 +108,28 @@ transform: rotate(0.5deg);
 }
 
 
-
-#top-menu > ul > li > a {
-  transition: all 1s;
+/*Context menu styles*/
+#context-menu {
+  box-shadow: 0 0 3px black;
 }
 
-#top-menu > ul > li > a:hover {
-  font-size: 120%;
+
+/*Issue styles*/
+div.issue {
+  background-color: #EAF5FF;
 }
 
-#block-form {
-  transition: all 1s;
-  padding: 10px;
-  opacity: 0.75;
-  border-radius: 5px;
+/*Empty progress bar color*/
+table.progress td.todo {
+  background-color: #fff;
 }
 
-#block-form:hover {
-  opacity: 1;
-  background: #eaeaFF;
-  box-shadow: 0 0 3px;
+/***********************/
+/* Project page styles */
+
+/*Prevent braking the list items into parts*/
+ul.projects li.root {
+  display:inline-block;
 }
 
 fieldset, fieldset.collapsible {
@@ -106,8 +137,6 @@ fieldset, fieldset.collapsible {
   border-width: 1px 1px 1px 1px;
   border-color: #888888;
   height: auto;
-  /*animation-duration: 2000ms;
-  animation-name: collapse0;*/
 }
 
 #main-menu > ul > li > a{
@@ -130,6 +159,9 @@ fieldset.collapsed {
   border-width: 1px 0 0 0;
 }
 
+
+/*****************/
+/* Table styling */
 
 table.list {
   border-radius: 7px;
@@ -156,7 +188,15 @@ table.list tbody td, table.list tbody tr {
   border-color: #E8E8E8    
 }
 
-/*
+
+table.list tbody td.status{
+  border-radius: 0.5em;
+  width: 10em;
+  height: 2em;
+  border: inherit;
+}
+
+/* Issue status coloring
 1 new
 2 work in progress
 3 resolved
@@ -164,10 +204,8 @@ table.list tbody td, table.list tbody tr {
 5 closed
 6 rejected
 */
-
-
 table.list tbody tr.status-1 td.status {
-  background-color: #FFFFFF;
+  background-color: #EAEAFF;
 }
 
 table.list tbody tr.status-2 td.status {
@@ -183,7 +221,7 @@ table.list tbody tr.status-4 td.status {
 }
 
 table.list tbody tr.status-5 td.status {
-  background-color: #FFCCFF;
+  background-color: #FFAAFF;
 }
 
 table.list tbody tr.status-6 td.status {
@@ -191,43 +229,85 @@ table.list tbody tr.status-6 td.status {
 }
 
 
+/********************/
+/* Calendar styling */
 
-#context-menu {
-  box-shadow: 0 0 3px black;
+
+
+#block-calendar table{
+  display:  block;
+  max-height: 50em;
+  min-width: 84em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#block-calendar table thead{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#block-calendar table div.issue{
+  max-width: 12em;
+  z-index: 0;
+}
+#block-calendar table div.issue:hover{
+  z-index: 2;
+}
+#block-calendar table div.issue span.tip{
+  box-shadow: 0 0 3px;
+}
+
+table.cal {
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: #507AAA;
 }
 
 
-div.issue {
-  background-color: #EAF5FF;
+table.cal thead th{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507AAA;
+  background: #507AAA;
+  border-top-color: #507AAA;
 }
 
-table.progress td.todo {
-  background-color: #fff;
-}
-/*-- Not used
-.rolling-smth {
-  animation-name: rolling;
-  animation-iteration-count: infinite;
-  animation-duration: 1s;
-  animation-timing-function: linear;
+table.cal thead th a, table.cal thead th {
+  color: #FEFEFE;
 }
 
-
-@keyframes collapse0 {
-  from {
-    height: 0px;
-  }
-
-  to {
-    height:  auto;
- }
+table.cal tbody td, table.cal tbody tr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E8E8E8;
+  z-index: 0;
 }
-@keyframes collapse1 {
-  from {
-    height: 378px;
-  }
 
-  to {
-    height: 0px;
- }
+/* Calendar issue coloring by status */
+
+table.cal td div.issue.status-1 {
+  background-color: #EAEAFF;
 }
+
+table.cal td div.issue.status-2 {
+  background-color: #FFFFCC;
+}
+
+table.cal td div.issue.status-3 {
+  background-color: #CCFFCC;
+}
+
+table.cal td div.issue.status-4 {
+  background-color: #FFCCCC;
+}
+
+table.cal td div.issue.status-5 {
+  background-color: #FFCCFF;
+}
+
+table.cal td div.issue.status-6 {
+  background-color: #808080;
+}
+
