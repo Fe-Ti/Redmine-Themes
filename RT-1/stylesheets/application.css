@@ -94,13 +94,13 @@ body, #wrapper { background-color: #FFEEEE; }
     transform: rotate(0deg);
   }
   25%{
-transform: rotate(0.5deg);
+transform: rotate(0.1deg);
   }
   50%{
     transform: rotate(0deg);
   }
   75%{
-    transform: rotate(-0.5deg);
+    transform: rotate(-0.1deg);
   }
   100%{
     transform: rotate(0deg);
