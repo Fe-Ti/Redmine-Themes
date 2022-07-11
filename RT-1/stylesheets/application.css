@@ -127,6 +127,7 @@ table.progress td.todo {
 /***********************/
 /* Project page styles */
 
+
 /*Prevent braking the list items into parts*/
 ul.projects li.root {
   display:inline-block;
@@ -137,6 +138,10 @@ fieldset, fieldset.collapsible {
   border-width: 1px 1px 1px 1px;
   border-color: #888888;
   height: auto;
+}
+
+#filters div.add-filter {
+  width: 25em;
 }
 
 #main-menu > ul > li > a{
