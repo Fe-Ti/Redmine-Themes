@@ -231,10 +231,16 @@ table.list tbody tr.status-6 td.status {
 
 /********************/
 /* Calendar styling */
+#block-calendar {
+  overflow-x: auto;
+  
+}
 
+#content table.cal {
+  overflow: auto;
+}
 
-
-#block-calendar table{
+#content #block-calendar table.cal {
   display:  block;
   max-height: 50em;
   min-width: 84em;
@@ -242,27 +248,40 @@ table.list tbody tr.status-6 td.status {
   overflow-x: hidden;
 }
 
-#block-calendar table thead{
+table.cal thead{
   position: sticky;
   top: 0;
   z-index: 2;
 }
 
-#block-calendar table div.issue{
-  max-width: 12em;
-  z-index: 0;
-}
-#block-calendar table div.issue:hover{
-  z-index: 2;
-}
-#block-calendar table div.issue span.tip{
-  box-shadow: 0 0 3px;
-}
-
-table.cal {
+table.cal{
+  display:  block;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 7px;
   border-width: 2px;
   border-color: #507AAA;
+  table-layout: fixed;
+}
+
+#block-calendar table.cal{
+  max-height: 56em;
+}
+
+table.cal div.issue{
+  z-index: 0;
+}
+
+#block-calendar table.cal div.issue{
+  min-width: 12em;
+}
+
+
+table.cal div.issue:hover{
+  z-index: 2;
+}
+table.cal div.issue span.tip{
+  box-shadow: 0 0 3px;
 }
 
 
@@ -283,6 +302,16 @@ table.cal tbody td, table.cal tbody tr {
   border-width: 1px;
   border-color: #E8E8E8;
   z-index: 0;
+  width: max-content;
+  min-width: 12em;
+  table-layout: fixed
+}
+
+table.cal tbody tr td.week-number,
+table.cal thead th.week-number  {
+  min-width: 2em;
+  max-width: 2em;
+  width: unset;
 }
 
 /* Calendar issue coloring by status */
