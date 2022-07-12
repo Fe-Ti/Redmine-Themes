@@ -431,13 +431,16 @@ table.cal td div.issue.status-6 {
     rotate: -90deg;
     transition: all 500ms;
   }
+  
+  #header {
+    border-radius: 0;
+  }
 
   #header #quick-search #project-jump .drdn-content,
   #header #quick-search #project-jump .drdn-content div{
     transition: all 500ms;
     display: block;
     left: -100%;
-    border-radius: 10px;
   }
 
   #header #quick-search #project-jump.expanded .drdn-content,
@@ -447,7 +450,7 @@ table.cal td div.issue.status-6 {
   }
 
   #header #quick-search #project-jump.expanded .drdn-content{
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 30px gray;
   }
   
   html #wrapper2 #wrapper3, html #wrapper, html #header {
@@ -467,5 +470,6 @@ table.cal td div.issue.status-6 {
   html.flyout-is-active .flyout-menu {
     right: 0;
     overflow-y: scroll;
+    box-shadow: 0 0 30px gray;
   }
 }
