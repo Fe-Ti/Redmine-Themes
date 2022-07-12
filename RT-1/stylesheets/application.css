@@ -449,4 +449,23 @@ table.cal td div.issue.status-6 {
   #header #quick-search #project-jump.expanded .drdn-content{
     box-shadow: 0 0 5px gray;
   }
+  
+  html #wrapper2 #wrapper3, html #wrapper, html #header {
+    transition: all 500ms;
+    right: 0;
+  }
+  html .flyout-menu {
+    transition: all 500ms;
+    top: 0px;
+    z-index: 2;
+    overflow-y: scroll;
+  }
+  html.flyout-is-active #wrapper2 #wrapper3,
+  html.flyout-is-active #wrapper, header {
+    right: 0;
+  }
+  html.flyout-is-active .flyout-menu {
+    right: 0;
+    overflow-y: scroll;
+  }
 }
