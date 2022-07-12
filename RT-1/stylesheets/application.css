@@ -4,28 +4,30 @@
 /*Common styles*/
 body, #wrapper { background-color: #FFEEEE; }
 
-#header {
-  margin: -30px 10px 0px 10px;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 0 0 3px gray;
-  padding-top: 40px;
-  background-color: #507AAA;
-  z-index: 1;
-}
-#top-menu {
-  margin: 0px 10px 0px 10px;
-  max-height: 30px;
-  min-height: 20px;
-  z-index: 2;
-  background-color: #3E5B76;
-}
+@media screen and (min-width: 900px) {
+  #header {
+    margin: -30px 10px 0px 10px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 3px gray;
+    padding-top: 40px;
+    background-color: #507AAA;
+    z-index: 1;
+  }
+  #top-menu {
+    margin: 0px 10px 0px 10px;
+    max-height: 30px;
+    min-height: 20px;
+    z-index: 2;
+    background-color: #3E5B76;
+  }
 
-#top-menu > ul > li > a {
-  transition: all 1s;
-}
+  #top-menu > ul > li > a {
+    transition: all 1s;
+  }
 
-#top-menu > ul > li > a:hover {
-  font-size: 120%;
+  #top-menu > ul > li > a:hover {
+    font-size: 120%;
+  }
 }
 
 #main {
@@ -426,7 +428,7 @@ table.cal td div.issue.status-6 {
 }
 
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 899px) {
   #header #project-jump .drdn-trigger::before {
     rotate: -90deg;
     transition: all 500ms;
