@@ -7,7 +7,7 @@ body, #wrapper { background-color: #FFEEEE; }
 #header {
   margin: -30px 10px 0px 10px;
   border-radius: 0px 0px 10px 10px;
-  box-shadow: 0 0 3px black;
+  box-shadow: 0 0 3px gray;
   padding-top: 40px;
   background-color: #507AAA;
   z-index: 1;
@@ -29,24 +29,24 @@ body, #wrapper { background-color: #FFEEEE; }
 }
 
 #main {
-  background: #FFEEEE;
+  background-color: #FFEEEE;
   margin: 8px 10px 0px 10px;
 }
 
 #content, #main.nosidebar #content {
-  background: #fff; 
+  background-color: #fff; 
   /*border-right: 1px solid #bbb; 
   border-bottom: 1px solid #bbb; 
   border-left: 1px solid #d7d7d7; 
   border-top: 1px solid #d7d7d7;*/
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 0 0 3px;
+  box-shadow: 0 0 3px gray;
   margin: 7px;
 }
 #sidebar {
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  box-shadow: 0 0 3px;
+  background-color: #fff;
+  box-shadow: 0 0 3px gray;
   margin: 7px;
 }
 
@@ -56,19 +56,25 @@ body, #wrapper { background-color: #FFEEEE; }
   border-radius: 5px
 }
 
+.box,
+#content #projects-index .projects li.root {
+  background-color: #FEFEFE;
+  border-color: #DDD;
+  border-radius: 10px;
+}
 
 /******************/
 /* My page styles */
 
 .mypage-box {
-  background: #FFFFFF;
-  box-shadow: 0 0 2px black;
-  transition: background 200ms;
+  background-color: #FEFEFE;
+  box-shadow: 0 0 2px gray;
+  transition: background 100ms;
   border-radius: 7px;
 }
 
 .mypage-box:hover {
-  background: #EAF5FF;
+  background-color: #EAF5FF;
 }
 
 #block-form {
@@ -80,13 +86,13 @@ body, #wrapper { background-color: #FFEEEE; }
 
 #block-form:hover {
   opacity: 1;
-  background: #EAEAFF;
-  box-shadow: 0 0 3px;
+  background-color: #EAEAFF;
+  box-shadow: 0 0 3px gray;
 }
 
 .ui-sortable-helper {
   animation: rolling infinite linear 1s;
-  background: #EAF5FF;
+  background-color: #EAF5FF;
 }
 
 @keyframes rolling {
@@ -110,7 +116,7 @@ transform: rotate(0.1deg);
 
 /*Context menu styles*/
 #context-menu {
-  box-shadow: 0 0 3px black;
+  box-shadow: 0 0 3px gray;
 }
 
 
@@ -145,16 +151,16 @@ fieldset, fieldset.collapsible {
 }
 
 #main-menu > ul > li > a{
-  background: #759FCF;
+  background-color: #759FCF;
   transition: all 500ms;
 }
 
 #main-menu > ul > li > a.selected, #main-menu > ul > li >  a.selected:hover{
-  background: #F8F8F8;
+  background-color: #F8F8F8;
 }
 
 #main-menu > ul > li > a:hover{
-  background: #507AAA;
+  background-color: #507AAA;
   text-decoration: unset;
 }
 
@@ -163,7 +169,6 @@ fieldset.collapsed {
   height: auto;
   border-width: 1px 0 0 0;
 }
-
 
 /*****************/
 /* Table styling */
@@ -179,7 +184,7 @@ table.list thead th{
   border-style: solid;
   border-width: 2px;
   border-color: #507AAA;
-  background: #507AAA;
+  background-color: #507AAA;
   border-top-color: #507AAA;
 }
 
@@ -190,15 +195,13 @@ table.list thead th a, table thead th {
 table.list tbody td, table.list tbody tr {
   border-style: solid;
   border-width: 1px;
-  border-color: #E8E8E8    
+  border-color: #E8E8E8
 }
 
 
 table.list tbody td.status{
-  border-radius: 0.5em;
   width: 10em;
   height: 2em;
-  border: inherit;
 }
 
 /* Issue status coloring
@@ -233,6 +236,14 @@ table.list tbody tr.status-6 td.status {
   background-color: #808080;
 }
 
+
+table tbody tr.context-menu-selection td {
+  border-color: #507aaa;
+  /*background-color: #759fcf;*/
+}
+table tbody tr.context-menu-selection td.status {
+  color: #333;
+}
 
 /********************/
 /* Calendar styling */
@@ -286,7 +297,7 @@ table.cal div.issue:hover{
   z-index: 2;
 }
 table.cal div.issue span.tip{
-  box-shadow: 0 0 3px;
+  box-shadow: 0 0 3px gray;
 }
 
 
@@ -294,7 +305,7 @@ table.cal thead th{
   border-style: solid;
   border-width: 2px;
   border-color: #507AAA;
-  background: #507AAA;
+  background-color: #507AAA;
   border-top-color: #507AAA;
 }
 
@@ -345,3 +356,71 @@ table.cal td div.issue.status-6 {
   background-color: #808080;
 }
 
+/* Buttons & menus */
+
+#content .contextual span.drdn,
+#content .contextual .icon,
+#query_form p.buttons .icon {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #f6f7f8;
+  box-shadow: 0 0 3px gray;
+  transition: all 100ms;
+  background-position-x: 4px;
+}
+
+#content .contextual span.drdn:hover,
+#content .contextual .icon:hover,
+#query_form p.buttons .icon:hover {
+  background-color: #EAEAFF;
+}
+
+#content .contextual .icon,
+#query_form p.buttons .icon {
+  padding-left: 25px;
+}
+
+#content .contextual span.drdn.expanded{
+  border-radius: 10px;
+  background-color: #EAEAFF;
+  box-shadow: 0 0 1px;
+}
+
+#content .contextual span.drdn .drdn-content.drdn-content,
+#content .contextual span.drdn .drdn-content.drdn-content .drdn-items,
+#content .contextual span.drdn .drdn-content.drdn-content .drdn-items .icon{
+  border-radius: 10px;
+  height: 0;
+  z-index: -1;
+  transition: all 100ms;
+  display: block;
+  opacity: 0;
+  
+}
+#content .contextual span.drdn.expanded .drdn-content.drdn-content,
+#content .contextual span.drdn.expanded .drdn-content.drdn-content .drdn-items{
+  height: unset;
+  top: 3em;
+  box-shadow: 0 0 3px gray;
+  opacity: 1;
+  z-index: 2;
+}
+#content .contextual span.drdn.expanded .drdn-content.drdn-content .drdn-items .icon{
+  height: unset;
+  opacity: 1;
+  z-index: 2;
+  border-radius: 5px;
+  background-color: #f6f7f8;
+  box-shadow: unset;
+}
+
+#issue-form input[type="submit"]{
+  margin: 10px;
+  box-shadow: 0 0 3px gray;
+  background-color: #f6f7f8;
+  transition: 10ms;
+}
+
+#issue-form input[type="submit"]:hover{
+  background-color: #EAEAFF;
+}
