@@ -424,3 +424,29 @@ table.cal td div.issue.status-6 {
 #issue-form input[type="submit"]:hover{
   background-color: #EAEAFF;
 }
+
+
+@media screen and (max-width: 900px){
+  #header #project-jump .drdn-trigger::before {
+    rotate: -90deg;
+    transition: all 500ms;
+  }
+
+  #header #quick-search #project-jump .drdn-content,
+  #header #quick-search #project-jump .drdn-content div{
+    transition: all 500ms;
+    display: block;
+    left: -100%;
+    border-radius: 10px;
+  }
+
+  #header #quick-search #project-jump.expanded .drdn-content,
+  #header #quick-search #project-jump.expanded .drdn-content div{
+    height: unset;
+    left: 0;
+  }
+
+  #header #quick-search #project-jump.expanded .drdn-content{
+    box-shadow: 0 0 5px gray;
+  }
+}
