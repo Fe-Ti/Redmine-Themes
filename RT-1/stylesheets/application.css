@@ -116,6 +116,7 @@ body, #wrapper { background-color: #FFEEEE; }
     right: 0;
     overflow-y: scroll;
     box-shadow: 0 0 30px gray;
+    z-index: 3;
   }
 }
 
@@ -501,5 +502,3 @@ table.cal td div.issue.status-6 {
 #issue-form input[type="submit"]:hover{
   background-color: #EAEAFF;
 }
-
-
