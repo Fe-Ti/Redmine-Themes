@@ -80,7 +80,8 @@ body, #wrapper { background-color: var(--bg-color); }
     background-color: var(--main-bg-color);
     color: var(--main-color);
     z-index: 1;
-  }
+	}
+	
   #top-menu {
     height: 30px;
     z-index: 2;
@@ -127,17 +128,19 @@ body, #wrapper { background-color: var(--bg-color); }
   }
 
   #main-menu ul li a{
-    background-color: #759FCF;
+    background-color: var(--selection-bg-color);
+    color: var(--selection-color);
     transition: all 100ms;
   }
 
   #main-menu ul li a.selected, #main-menu ul li  a.selected:hover{
-    background-color: #F8F8F8;
+    background-color: var(--bg-color);
+		color: var(--fg-color);
   }
 
   #main-menu ul li a:hover{
-    background-color: var(--main-bg-color);
-    color: var(--main-color);
+    background-color: var(--accent-bg-color);
+    color: var(--accent-color);
     text-decoration: unset;
   }
   
@@ -268,6 +271,17 @@ body, #wrapper { background-color: var(--bg-color); }
   padding: 10px;
   border-radius: var(--roundness);
 }
+
+#header #quick-search label a {
+	background-color: var(--selection-bg-color);
+	color: var(--selection-color);
+}
+
+#header #quick-search #project-jump .drdn-content a:hover {
+	background-color: var(--selection-bg-color);
+	color: var(--selection-color) !important;
+}
+
 
 .box,
 #content #projects-index .projects li.root {
