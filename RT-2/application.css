@@ -1,0 +1,544 @@
+
+
+@import url(../../../stylesheets/application.css);
+
+:root{
+  --fg-color: #222;
+  --main-color: #222;
+  --accent-color: #222;
+  --selection-color: #222;
+  
+  --bg-color: #fff;
+  --main-bg-color: #FFEAEA;
+  --accent-bg-color: #EAEAFF;
+  --selection-bg-color: #EECBCB;
+  
+  --light-border-color: #E8E8E8;
+  
+  --roundness: 7px;
+  
+  --std-border-width: 1px;
+  --table-border-width: 2px;
+  --table-border-spacing: 0;
+}
+
+/************************/
+/* Issue status coloring
+1 new
+2 work in progress
+3 resolved
+4 need feedback
+5 closed
+6 rejected
+*/
+
+table.cal td div.issue.status-1, 
+table.list tbody tr.status-1 td.status {
+  color: var(--fg-color);
+  background-color: #CCCCFF;
+}
+
+table.cal td div.issue.status-2,
+table.list tbody tr.status-2 td.status {
+  color: var(--fg-color);
+  background-color: #FFFFCC;
+}
+
+table.cal td div.issue.status-3,
+table.list tbody tr.status-3 td.status {
+  color: var(--fg-color);
+  background-color: #CCFFCC;
+}
+
+table.cal td div.issue.status-4,
+table.list tbody tr.status-4 td.status {
+  color: var(--fg-color);
+  background-color: #FFCCCC;
+}
+
+table.cal td div.issue.status-5,
+table.list tbody tr.status-5 td.status {
+  color: var(--fg-color);
+  background-color: #FFCCFF;
+}
+
+table.cal td div.issue.status-6,
+table.list tbody tr.status-6 td.status {
+  color: var(--fg-color);
+  background-color: #808080;
+}
+
+/***************/
+/*Common styles*/
+
+body, #wrapper { background-color: var(--bg-color); }
+
+/*Desktop specific styles*/
+@media screen and (min-width: 900px) {
+  #header {
+    padding-top: 40px;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    z-index: 1;
+  }
+  #top-menu {
+    height: 30px;
+    z-index: 2;
+    background-color: var(--selection-bg-color);
+    color: var(--selection-color);
+  }
+  html #wrapper3 #top-menu a {
+    background-color: var(--selection-bg-color);
+    text-decoration-color: var(--selection-bg-color);
+    color: var(--selection-color);
+		height: 30px;
+    font-size: 10px;
+    font-weight:  normal;
+  }
+  
+  
+  html #wrapper3 #top-menu a{
+    position: relative;
+    top: 8px;
+    padding: 3px 5px 3px 5px;
+    border-radius: var(--roundness);
+  }
+  
+  html #wrapper3 #top-menu #loggedas {
+    background-color: var(--selection-bg-color);
+    color: var(--selection-color);
+    position: relative;
+    top: 8px;
+    height: px;
+  }
+  
+  html #wrapper3 #top-menu #loggedas a {
+    top:0;
+  }
+  
+  html #wrapper3 #top-menu a:hover {
+    background-color: var(--accent-bg-color);
+    text-decoration-color: var(--accent-bg-color);
+    color: var(--accent-color);
+  }
+
+  #top-menu ul li a {
+    transition: all 100ms;
+  }
+
+  #main-menu ul li a{
+    background-color: #759FCF;
+    transition: all 100ms;
+  }
+
+  #main-menu ul li a.selected, #main-menu ul li  a.selected:hover{
+    background-color: #F8F8F8;
+  }
+
+  #main-menu ul li a:hover{
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    text-decoration: unset;
+  }
+  
+}
+
+/*Mobile specific styles*/
+@media screen and (max-width: 899px) {
+  #wrapper #header {
+    border-radius: 0;
+    color: var(--main-color);
+    background-color:  var(--main-bg-color);
+  }
+  
+  #header #project-jump span.drdn-trigger {
+    padding-left: 2em;
+    color: var(--main-color);
+    background-color:  var(--main-bg-color);
+  }
+  
+  #header #quick-search #project-jump.drdn .drdn-trigger::before {
+    padding: 0  8px 0 8px;
+    opacity: 1;
+    background-color: var(--accent-bg-color);
+    color: var(--accent-color);
+    border-width: 1px;
+    border-color: #f1f1f1;
+    border-style: solid;
+    border-radius: 100px;
+    transform: scale(.8, .8);
+    rotate: -270deg;
+    transition: all 100ms;
+  }
+  
+  #header #quick-search #project-jump.expanded .drdn-trigger::before {
+    padding: 0  8px 0 8px;
+    transform: scale(.8, .8);
+    rotate: -90deg;
+    padding-top: 0px;
+    background-color: var(--accent-bg-color);
+    color: var(--accent-color);
+  }
+  
+  #header #quick-search #project-jump .drdn-content,
+  #header #quick-search #project-jump .drdn-content div{
+    transition: all 100ms;
+    display: block;
+    left: -100%;
+  }
+
+  #header #quick-search #project-jump.expanded .drdn-content,
+  #header #quick-search #project-jump.expanded .drdn-content div{
+    height: unset;
+    left: 0;
+  }
+
+  #header #quick-search #project-jump.expanded .drdn-content{
+  }
+  
+  html #wrapper2 #wrapper3, html #wrapper, html #header {
+    transition: all 100ms;
+    /*! right: 0; */
+  }
+  
+  html #header .mobile-toggle-button::after {
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+  }
+  
+  html #wrapper .flyout-menu {
+    transition: all 100ms;
+    top: 0px;
+    z-index: 10;
+    overflow-y: scroll;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    border-color: var(--light-border-color);
+    border-style: solid;
+    border-width: var(--std-border-width);
+    box-shadow: 0 0 20px var(--light-border-color);
+  }
+	
+	html #wrapper .flyout-menu * {
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+	}
+  
+  html #wrapper .flyout-menu h3 {
+    background-color: var(--accent-bg-color) ;
+    color: var(--accent-color);
+  }
+  
+  html.flyout-is-active #wrapper2 #wrapper3,
+  html.flyout-is-active #wrapper, header {
+    right: 0;
+  }
+  
+  html.flyout-is-active #wrapper .flyout-menu {
+    right: 0;
+    overflow-y: scroll;
+    z-index: 3;
+  }
+}
+
+#main {
+  background-color: var(--bg-color);
+  margin: 8px 10px 0px 10px;
+}
+
+#content, #main.nosidebar #content {
+  background-color: var(--bg-color); 
+  /*border-right: 1px solid #bbb; 
+  border-bottom: 1px solid #bbb; 
+  border-left: 1px solid #d7d7d7; 
+  border-top: 1px solid #d7d7d7;*/
+  border-color: var(--light-border-color);
+  border-radius: var(--roundness);
+  margin: 7px;
+}
+#sidebar {
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  margin: 7px;
+}
+
+#quick-search {
+  background-color: var(--selection-bg-color);
+	color: var(--selection-color);
+  padding: 10px;
+  border-radius: var(--roundness);
+}
+
+.box,
+#content #projects-index .projects li.root {
+  background-color: var(--bg-color);
+  border-color: #DDD;
+  border-radius: var(--roundness);
+}
+
+/******************/
+/* My page styles */
+
+.mypage-box {
+  background-color: var(--bg-color);
+  transition: background 100ms;
+  border-radius: 7px;
+}
+
+.mypage-box:hover {
+  background-color: ;
+}
+
+#block-form {
+  transition: all 100ms;
+  padding: 10px;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+#block-form:hover {
+  opacity: 1;
+  background-color: var(--accent-bg-color);
+  color: var(--accent-color);
+}
+
+.ui-sortable-helper {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-color);
+}
+
+/*Context menu styles*/
+#context-menu {
+}
+
+
+/*Issue styles*/
+div.issue {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-color);
+}
+
+/*Empty progress bar color*/
+table.progress td.todo {
+  background-color: var(--bg-color);
+}
+
+/***********************/
+/* Project page styles */
+
+
+/*Prevent braking the list items into parts*/
+ul.projects li.root {
+  display:inline-block;
+}
+
+fieldset, fieldset.collapsible {
+  border-radius: 5px;
+  border-width: 1px 1px 1px 1px;
+  border-color: #888888;
+  height: auto;
+}
+
+#filters div.add-filter {
+  width: 25em;
+}
+
+fieldset.collapsed {
+  border-radius: 0px;
+  height: auto;
+  border-width: 1px 0 0 0;
+}
+
+/*****************/
+/* Table styling */
+
+table.list {
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: var(--main-bg-color);
+}
+
+
+table.list thead th{
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--main-bg-color);
+  color: var(--main-color);
+  
+    background-color: var(--main-bg-color);
+    border-top-color: var(--main-bg-color);
+}
+
+table.list thead th a, table thead th {
+  color: var(--main-color);
+}
+
+table.list tbody td, table.list tbody tr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E8E8E8;
+}
+
+
+table.list tbody td.status{
+  width: 10em;
+  height: 2em;
+}
+
+table tbody tr.context-menu-selection td {
+  border-color: var(--main-bg-color);
+  /*background-color: #759fcf;*/
+}
+table tbody tr.context-menu-selection td.status {
+  color: #333;
+}
+
+/********************/
+/* Calendar styling */
+#block-calendar {
+  overflow-x: auto;
+  
+}
+
+#content table.cal {
+  overflow: auto;
+}
+
+#content #block-calendar table.cal {
+  display:  block;
+  max-height: 50em;
+  min-width: 84em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+table.cal thead{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+table.cal{
+  display:  block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: var(--main-bg-color);
+  table-layout: fixed;
+}
+
+#block-calendar table.cal{
+  max-height: 56em;
+}
+
+table.cal div.issue{
+  z-index: 0;
+}
+
+#block-calendar table.cal div.issue{
+  min-width: 12em;
+}
+
+
+table.cal div.issue:hover{
+  z-index: 2;
+}
+table.cal div.issue span.tip{
+}
+
+
+table.cal thead th{
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--main-bg-color);
+  background-color: var(--main-bg-color); color: var(--main-color);
+  border-top-color: var(--main-bg-color);
+}
+
+table.cal thead th a, table.cal thead th {
+  color: #FEFEFE;
+}
+
+table.cal tbody td, table.cal tbody tr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E8E8E8;
+  z-index: 0;
+  width: max-content;
+  min-width: 12em;
+  table-layout: fixed
+}
+
+table.cal tbody tr td.week-number,
+table.cal thead th.week-number  {
+  min-width: 2em;
+  max-width: 2em;
+  width: unset;
+}
+
+/* Buttons & menus */
+
+#content .contextual span.drdn,
+#content .contextual .icon,
+#query_form p.buttons .icon {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+  transition: all 100ms;
+  background-position-x: 4px;
+}
+
+#content .contextual span.drdn:hover,
+#content .contextual .icon:hover,
+#query_form p.buttons .icon:hover {
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+}
+
+#content .contextual .icon,
+#query_form p.buttons .icon {
+  padding-left: 25px;
+}
+
+#content .contextual span.drdn.expanded{
+  border-radius: 10px;
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+}
+
+#content .contextual span.drdn .drdn-content.drdn-content,
+#content .contextual span.drdn .drdn-content.drdn-content .drdn-items,
+#content .contextual span.drdn .drdn-content.drdn-content .drdn-items .icon{
+  border-radius: 10px;
+  height: 0;
+  z-index: -1;
+  transition: all 100ms;
+  display: block;
+  opacity: 0;
+  
+}
+#content .contextual span.drdn.expanded .drdn-content.drdn-content,
+#content .contextual span.drdn.expanded .drdn-content.drdn-content .drdn-items{
+  height: unset;
+  top: 3em;
+  opacity: 1;
+  z-index: 2;
+}
+#content .contextual span.drdn.expanded .drdn-content.drdn-content .drdn-items .icon{
+  height: unset;
+  opacity: 1;
+  z-index: 2;
+  border-radius: 5px;
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+}
+
+#issue-form input[type="submit"]{
+  margin: 10px;
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+  transition: 10ms;
+}
+
+#issue-form input[type="submit"]:hover{
+  background-color: var(--accent-bg-color); color: var(--accent-color);
+}
+
+
