@@ -14,6 +14,8 @@
   --selection-bg-color: #EECBCB;
   
   --light-border-color: #E8E8E8;
+	--very-light-border-color:#EFEFEF;
+	--dark-border-color: #888;
   
   --roundness: 7px;
   
@@ -247,21 +249,15 @@ body, #wrapper { background-color: var(--bg-color); }
 #main {
   background-color: var(--bg-color);
   margin: 8px 10px 0px 10px;
+	overflow-y: auto;
 }
 
-#content, #main.nosidebar #content {
-  background-color: var(--bg-color); 
-  /*border-right: 1px solid #bbb; 
-  border-bottom: 1px solid #bbb; 
-  border-left: 1px solid #d7d7d7; 
-  border-top: 1px solid #d7d7d7;*/
-  border-color: var(--light-border-color);
-  border-radius: var(--roundness);
-  margin: 7px;
-}
-#sidebar {
-  border-radius: 10px;
+#sidebar, #content, #main.nosidebar #content {
   background-color: var(--bg-color);
+	border-style:  solid;
+	border-width: var(--std-border-width);
+  border-color: var(--very-light-border-color);
+  border-radius: var(--roundness);
   margin: 7px;
 }
 
@@ -378,9 +374,7 @@ table.list thead th{
   border-width: 2px;
   border-color: var(--main-bg-color);
   color: var(--main-color);
-  
-    background-color: var(--main-bg-color);
-    border-top-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 
 table.list thead th a, table thead th {
@@ -409,22 +403,6 @@ table tbody tr.context-menu-selection td.status {
 
 /********************/
 /* Calendar styling */
-#block-calendar {
-  overflow-x: auto;
-  
-}
-
-#content table.cal {
-  overflow: auto;
-}
-
-#content #block-calendar table.cal {
-  display:  block;
-  max-height: 50em;
-  min-width: 84em;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
 table.cal thead{
   position: sticky;
@@ -433,54 +411,37 @@ table.cal thead{
 }
 
 table.cal{
-  display:  block;
   overflow-y: auto;
   overflow-x: hidden;
+  min-width: 800px;
   border-radius: 7px;
   border-width: 2px;
   border-color: var(--main-bg-color);
   table-layout: fixed;
 }
 
-#block-calendar table.cal{
-  max-height: 56em;
-}
-
 table.cal div.issue{
   z-index: 0;
 }
 
-#block-calendar table.cal div.issue{
-  min-width: 12em;
+table.cal div.issue:hover, table.cal div.issue:hover span.tip{
+  z-index: 20;
 }
-
-
-table.cal div.issue:hover{
-  z-index: 2;
-}
-table.cal div.issue span.tip{
-}
-
 
 table.cal thead th{
   border-style: solid;
   border-width: 2px;
   border-color: var(--main-bg-color);
-  background-color: var(--main-bg-color); color: var(--main-color);
-  border-top-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
+	color: var(--main-color);
 }
 
-table.cal thead th a, table.cal thead th {
-  color: #FEFEFE;
-}
 
 table.cal tbody td, table.cal tbody tr {
   border-style: solid;
   border-width: 1px;
   border-color: #E8E8E8;
   z-index: 0;
-  width: max-content;
-  min-width: 12em;
   table-layout: fixed
 }
 
@@ -493,20 +454,34 @@ table.cal thead th.week-number  {
 
 /* Buttons & menus */
 
+#content #context-menu ul {
+	box-shadow: 0 0 20px var(--dark-border-color);
+}
+#content #context-menu,
+#content #context-menu ul {
+	border-radius: var(--roundness);
+}
+
 #content .contextual span.drdn,
 #content .contextual .icon,
 #query_form p.buttons .icon {
   border-radius: 10px;
   padding: 5px;
-  background-color: var(--accent-bg-color); color: var(--accent-color);
+  background-color: var(--accent-bg-color);
+	color: var(--accent-color);
   transition: all 100ms;
   background-position-x: 4px;
+	border-style: solid;
+	border-width: var(--std-border-width);
+	border-color: var(--light-border-color);
 }
 
 #content .contextual span.drdn:hover,
 #content .contextual .icon:hover,
 #query_form p.buttons .icon:hover {
-  background-color: var(--accent-bg-color); color: var(--accent-color);
+  background-color: var(--bg-color);
+	color: var(--fg-color);
+	border-color: var(--dark-border-color);
 }
 
 #content .contextual .icon,
@@ -554,5 +529,3 @@ table.cal thead th.week-number  {
 #issue-form input[type="submit"]:hover{
   background-color: var(--accent-bg-color); color: var(--accent-color);
 }
-
-
